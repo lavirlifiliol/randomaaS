@@ -1,5 +1,5 @@
-from pathlib import Path
 import os
+from pathlib import Path
 
 from ariadne import gql, QueryType, make_executable_schema
 from ariadne.wsgi import GraphQL
