@@ -4,7 +4,7 @@ from pathlib import Path
 from ariadne import gql, QueryType, make_executable_schema
 from ariadne.wsgi import GraphQL
 
-types = gql((Path(__file__).parent / 'randomaas.schema').read_text())
+types = gql((Path(__file__).parent / 'randomaas.gql').read_text())
 query = QueryType()
 
 
