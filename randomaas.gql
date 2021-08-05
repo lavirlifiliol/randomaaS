@@ -1,3 +1,11 @@
 type Query {
-    hello: String!
+    random(seed: Int!): RandomData!
+}
+
+type RandomData {
+    int(min: Int!, max: Int!): Int!
+    float: Float!
+    floats(n: Int!): [Float!]!
+    ints(n:Int!, min:Int!,max:Int!): [Int!]!
+    bits(n:Int!): String!
 }
