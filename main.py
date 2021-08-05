@@ -3,7 +3,7 @@ import os
 
 from ariadne import gql, QueryType, make_executable_schema
 
-types = gql(Path('randomaas.schema').read_text())
+types = gql((Path(__file__) / '../randomaas.schema').read_text())
 query = QueryType()
 
 
