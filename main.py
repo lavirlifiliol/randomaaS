@@ -3,7 +3,11 @@ from pathlib import Path
 from random import Random
 
 from ariadne import gql, QueryType, make_executable_schema, ObjectType
-from ariadne.wsgi import GraphQL
+debug=os.environ.get('DEBUG', False)
+if debug:
+    from ariadne.asgi import GraphQL
+else:
+    from ariadne.wsgi import GraphQL
 
 types = gql((Path(__file__).parent / 'randomaas.gql').read_text())
 query = QueryType()
@@ -41,4 +45,4 @@ def resolve_bits(parent: Random, _, n):
 
 
 schema = make_executable_schema(types, query, random_data)
-app = GraphQL(schema, debug=os.environ.get('DEBUG', False))
+app = GraphQL(schema, debug=debug)
